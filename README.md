@@ -1,2 +1,2 @@
 # spatie-webhooks
-short project trying spatie webhook client
+short project checking spatie webhook client
