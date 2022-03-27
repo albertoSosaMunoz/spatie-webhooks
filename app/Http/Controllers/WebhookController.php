@@ -14,8 +14,8 @@ class WebhookController extends Controller
 
         WebhookCall::create()
             ->url('127.0.0.1:8000/api/webhook-radar')
-            ->payload(['action' => 'creado y enciado'])
-            ->useSecret('sin secretos')
+            ->payload(['action' => 'creado y enviado'])
+            ->useSecret('1')
             ->dispatch();
 
         Log::info("creado");
