@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Http\Controllers\PruebasShopify;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -17,8 +18,11 @@ class ReceiveWebhook extends SpatieProcessWebhookJob
     public function handle()
     {
         // $this->webhookCall // contains an instance of `WebhookCall`
-
         // perform the work here
         Log::info("recibido" . $this->webhookCall);
+        $data=($this->webhookCall->payload);
+        dd($data);
+        return response('Hello World', 200)
+            ->header('x_hook_secret', 'text/plain');
     }
 }

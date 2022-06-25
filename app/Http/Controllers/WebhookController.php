@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 class WebhookController extends Controller
 {
     
-    public function send_webhook(){
+    public static function send_webhook(){
 
         WebhookCall::create()
             ->url('127.0.0.1:8000/api/webhook-radar')
@@ -19,6 +19,12 @@ class WebhookController extends Controller
             ->dispatch();
 
         Log::info("creado");
+    }
+
+    public static function receive_webhook(Request $request){
+
+        Log::info($request->header('x-hook-secret'));
+
     }
 
 }
